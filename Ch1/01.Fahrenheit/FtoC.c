@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 void main() {
-    int fahr, celc;
+    float fahr, celc;
     int lower, upper, step;
 
     lower = 0;
@@ -15,7 +15,7 @@ void main() {
     while (fahr <= upper)
     {
         celc = 5 * (fahr - 32) / 9;
-        printf("%d\t%d\n", fahr, celc);
+        printf("%3.0f\t%6.1f\n", fahr, celc);
         fahr += step;
     }
     
