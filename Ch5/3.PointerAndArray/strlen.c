@@ -20,5 +20,5 @@ void main(int argc, char argv[]) {
         *(pst + i) = c;
     *(pst + i) = '\0';
 
-    printf("\nLength: %d", strleng(&str[0]));
+    printf("\nLength: %d", strleng(str));
 }
