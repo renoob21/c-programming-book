@@ -1,23 +1,21 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-const char* lower(char s[]) {
-    char low[100];
-    int i = 0;
+const char* lower(char *s) {
+    char *low = malloc(strlen(s));
+    int i;
 
-    while (s[i] != '\0') {
-        if (s[i] >= 'A' && s[i] <= 'Z') {
-            low[i] = s[i] - 'A' + 'a';
-            ++i;
-        } else {
-            low[i] = s[i];
-            ++i;
-        }
+    for (i = 0;*s != '\0'; s++, low++, i++) {
+        if (*s >= 'A' && *s <= 'Z')
+            *low = *s - 'A' + 'a';
+        else
+            *low = *s;
     }
 
-    ++i;
-    low[i] = '\0';
+    *low = '\0';
 
-    return low;
+    return low-i;
 }
 
 int main(int argc, char const *argv[])

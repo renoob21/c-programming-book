@@ -6,6 +6,15 @@ static char daytab[2][13] = {
     {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
 };
 
+char *month_name(int n) {
+    static char *name[] = {
+        "Illegal Month", "January", "February", "March", "April",
+        "May", "June", "July", "August", "September",
+        "October", "November", "December"
+    };
+    return (n < 1 || n > 12) ? name[0] : name[n];
+}
+
 int day_of_year(int year, int month, int day) {
     int i, leap;
 
@@ -47,6 +56,6 @@ int main(int argc, char *argv[])
     printf("%-15s: %s-%s-%s\n", "Date", argv[1], argv[2], argv[3]);
     printf("%-15s: %d\n", "Day of year", dayofyear);
     month_day(atoi(argv[1]), dayofyear, &month, &day);
-    printf("%-15s: %s-%d-%d\n", "Date", argv[1], month, day);
+    printf("%-15s: %s-%s-%d\n", "Date", argv[1], month_name(month), day);
     return 0;
 }
